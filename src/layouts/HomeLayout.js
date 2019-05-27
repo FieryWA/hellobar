@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Menu, Icon } from 'antd';
+import { Menu, Breadcrumb } from 'antd';
 import style from '../styles/home-layout.less';
 
 const SubMenu = Menu.SubMenu;
@@ -10,36 +10,44 @@ class HomeLayout extends React.Component {
   render () {
     const {children} = this.props;
     return (
-      <div>
+      <div className={style.box}>
         <header className={style.header}>
-          <Link to="/">ReactManager</Link>
+          <a><Link to="/">BRAINS</Link></a>
         </header>
-
+        <div className={style.Bread}>
+        <Breadcrumb>
+        <Breadcrumb.Item>BRAINS</Breadcrumb.Item>
+        </Breadcrumb>
+        </div>
         <main className={style.main}>
           <div className={style.menu}>
-            <Menu mode="inline" theme="dark" style={{width: '240px'}}>
-              <SubMenu key="user" title={<span><Icon type="user"/><span>用户管理</span></span>}>
-                <MenuItem key="user-list">
-                  <Link to="/user/list">用户列表</Link>
+          <div className={style.top}>
+          <span>BRAINS</span>
+          </div>
+            <Menu mode="inline" style={{width: '240px'}}>
+                <MenuItem key="mainmemu">
+                  <Link to="/">メインメニユー</Link>
                 </MenuItem>
-                <MenuItem key="user-add">
-                  <Link to="/user/add">添加用户</Link>
+                <MenuItem key="T3">
+                  <Link to="/t3">T3帳票入力</Link>
                 </MenuItem>
-              </SubMenu>
-
-              <SubMenu key="book" title={<span><Icon type="book"/><span>图书管理</span></span>}>
-                <MenuItem key="book-list">
-                  <Link to="/book/list">图书列表</Link>
+                <MenuItem key="T4">
+                  <Link to="/t4">T4帳票入力</Link>
                 </MenuItem>
-                <MenuItem key="book-add">
-                  <Link to="/book/add">添加图书</Link>
+                <MenuItem key="major">
+                  <Link to="/major">入力帳票照会</Link>
                 </MenuItem>
-              </SubMenu>
+                <MenuItem key="bupdate">
+                  <Link to="/bupdate">ビリングマスター更新</Link>
+                </MenuItem>
+                <MenuItem key="bask">
+                  <Link to="/bask">ビリングマスター照会</Link>
+                </MenuItem>
             </Menu>
           </div>
 
           <div className={style.content}>
-            {children}
+              {children}
           </div>
         </main>
       </div>

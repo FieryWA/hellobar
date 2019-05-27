@@ -2,26 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory } from 'react-router';
 import HomePage from './pages/Home';
-import UserAddPage from './pages/UserAdd';
-import UserListPage from './pages/UserList';
-import UserEditPage from './pages/UserEdit';
-import BookAddPage from './pages/BookAdd';
-import BookListPage from './pages/BookList';
-import BookEditPage from './pages/BookEdit';
-import LoginPage from './pages/Login';
+import BupdatePage from './pages/Bupdate';
+import BaskPage from './pages/Bask';
 import HomeLayout from './layouts/HomeLayout';
+import T3Page from './pages/T3';
+import T4Page from './pages/T4';
+import MajorPage from './pages/Major';
 
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route component={HomeLayout}>
       <Route path="/" component={HomePage}/>
-      <Route path="/user/add" component={UserAddPage}/>
-      <Route path="/user/list" component={UserListPage}/>
-      <Route path="/user/edit/:id" component={UserEditPage}/>
-      <Route path="/book/add" component={BookAddPage}/>
-      <Route path="/book/list" component={BookListPage}/>
-      <Route path="/book/edit/:id" component={BookEditPage}/>
+      <Route path="/t3" component={T3Page}/>
+      <Route path="/t4" component={T4Page}/>
+      <Route path="/major" component={MajorPage}/>
+      <Route path="/bupdate" component={BupdatePage}/>
+      <Route path="/bask" component={BaskPage}/>
     </Route>
-    <Route path="/login" component={LoginPage}/>
   </Router>
 ), document.getElementById('app'));
